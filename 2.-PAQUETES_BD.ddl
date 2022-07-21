@@ -1,4 +1,4 @@
-create or replace PACKAGE detalleventa_tapi IS
+CREATE OR REPLACE PACKAGE detalleventa_tapi IS
     TYPE detalleventa_tapi_rec IS RECORD (
         iddetalleventa      detalleventa.iddetalleventa%TYPE,
         cantidad            detalleventa.cantidad%TYPE,
@@ -33,9 +33,8 @@ create or replace PACKAGE detalleventa_tapi IS
 
 END detalleventa_tapi;
 
-
 ---------------- 
-create or replace PACKAGE BODY detalleventa_tapi IS
+CREATE OR REPLACE PACKAGE BODY detalleventa_tapi IS
  -- INSERT 
     PROCEDURE ins (
         p_iddetalleventa      IN detalleventa.iddetalleventa%TYPE,
@@ -95,7 +94,7 @@ create or replace PACKAGE BODY detalleventa_tapi IS
 END detalleventa_tapi;
 
 -----------
-create or replace PACKAGE documentacion_tapi IS
+CREATE OR REPLACE PACKAGE documentacion_tapi IS
     TYPE documentacion_tapi_rec IS RECORD (
         iddocumentacion     documentacion.iddocumentacion%TYPE,
         tipodocumento       documentacion.tipodocumento%TYPE,
@@ -123,15 +122,15 @@ create or replace PACKAGE documentacion_tapi IS
         p_producto_idproducto IN documentacion.producto_idproducto%TYPE
     );
 
-
 -- DELETE 
     PROCEDURE del (
         p_iddocumentacion IN documentacion.iddocumentacion%TYPE
     );
 
 END documentacion_tapi;
+
 ----------
-create or replace PACKAGE BODY documentacion_tapi IS
+CREATE OR REPLACE PACKAGE BODY documentacion_tapi IS
 -- INSERT 
     PROCEDURE ins (
         p_iddocumentacion     IN documentacion.iddocumentacion%TYPE,
@@ -187,8 +186,9 @@ create or replace PACKAGE BODY documentacion_tapi IS
     END;
 
 END documentacion_tapi;
+
 ---------------
-create or replace PACKAGE producto_tapi IS
+CREATE OR REPLACE PACKAGE producto_tapi IS
     TYPE producto_tapi_rec IS RECORD (
         idproducto    producto.idproducto%TYPE,
         nomproducto   producto.nomproducto%TYPE,
@@ -235,8 +235,9 @@ create or replace PACKAGE producto_tapi IS
     );
 
 END producto_tapi;
+
 ------------
-create or replace PACKAGE BODY producto_tapi IS
+CREATE OR REPLACE PACKAGE BODY producto_tapi IS
      -- INSERT 
     PROCEDURE ins (
         p_idproducto    IN producto.idproducto%TYPE,
@@ -312,8 +313,9 @@ create or replace PACKAGE BODY producto_tapi IS
     END;
 
 END producto_tapi;
+
 ------------
-create or replace PACKAGE rol_tapi IS
+CREATE OR REPLACE PACKAGE rol_tapi IS
     TYPE rol_tapi_rec IS RECORD (
         idrol  rol.idrol%TYPE,
         nombre rol.nombre%TYPE
@@ -339,8 +341,9 @@ create or replace PACKAGE rol_tapi IS
     );
 
 END rol_tapi;
+
 -------------
-create or replace PACKAGE BODY rol_tapi IS
+CREATE OR REPLACE PACKAGE BODY rol_tapi IS
 -- INSERT 
     PROCEDURE ins (
         p_idrol  IN rol.idrol%TYPE,
@@ -383,13 +386,14 @@ create or replace PACKAGE BODY rol_tapi IS
     END;
 
 END rol_tapi;
+
 -------------------
-create or replace PACKAGE seguimientoenvios_tapi IS
+CREATE OR REPLACE PACKAGE seguimientoenvios_tapi IS
     TYPE seguimientoenvios_tapi_rec IS RECORD (
-        idseguimiento      seguimientoenvios.idseguimiento%TYPE,
-        estadoentrega            seguimientoenvios.estadoentrega%TYPE,
-        fechadespacho         seguimientoenvios.fechadespacho%TYPE,
-        fechaentrega       seguimientoenvios.fechaentrega%TYPE,
+        idseguimiento seguimientoenvios.idseguimiento%TYPE,
+        estadoentrega seguimientoenvios.estadoentrega%TYPE,
+        fechadespacho seguimientoenvios.fechadespacho%TYPE,
+        fechaentrega  seguimientoenvios.fechaentrega%TYPE,
         venta_idventa seguimientoenvios.venta_idventa%TYPE
     );
     TYPE seguimientoenvios_tapi_tab IS
@@ -399,23 +403,26 @@ create or replace PACKAGE seguimientoenvios_tapi IS
         p_idseguimiento IN seguimientoenvios.idseguimiento%TYPE,
         p_estadoentrega IN seguimientoenvios.estadoentrega%TYPE,
         p_fechadespacho IN seguimientoenvios.fechadespacho%TYPE,
-        p_fechaentrega IN seguimientoenvios.fechaentrega%TYPE,
+        p_fechaentrega  IN seguimientoenvios.fechaentrega%TYPE,
         p_venta_idventa IN seguimientoenvios.venta_idventa%TYPE
     );
  -- UPDATE  
     PROCEDURE udp (
-    p_idseguimiento IN seguimientoenvios.idseguimiento%TYPE,
+        p_idseguimiento IN seguimientoenvios.idseguimiento%TYPE,
         p_estadoentrega IN seguimientoenvios.estadoentrega%TYPE,
         p_fechadespacho IN seguimientoenvios.fechadespacho%TYPE,
-        p_fechaentrega IN seguimientoenvios.fechaentrega%TYPE,
+        p_fechaentrega  IN seguimientoenvios.fechaentrega%TYPE,
         p_venta_idventa IN seguimientoenvios.venta_idventa%TYPE
     );
 -- DELETE 
     PROCEDURE del (
-    p_idseguimiento IN seguimientoenvios.idseguimiento%TYPE  );
-    END seguimientoenvios_tapi;
+        p_idseguimiento IN seguimientoenvios.idseguimiento%TYPE
+    );
+
+END seguimientoenvios_tapi;
+
 ----------------
-create or replace PACKAGE BODY seguimientoenvios_tapi IS
+CREATE OR REPLACE PACKAGE BODY seguimientoenvios_tapi IS
            -- INSERT 
     PROCEDURE ins (
         p_idseguimiento IN seguimientoenvios.idseguimiento%TYPE,
@@ -472,8 +479,9 @@ create or replace PACKAGE BODY seguimientoenvios_tapi IS
     END;
 
 END seguimientoenvios_tapi;
+
 ----------------
-create or replace PACKAGE usuario_tapi IS
+CREATE OR REPLACE PACKAGE usuario_tapi IS
     TYPE usuario_tapi_rec IS RECORD (
         idusuario usuario.idusuario%TYPE,
         username  usuario.username%TYPE,
@@ -526,8 +534,9 @@ create or replace PACKAGE usuario_tapi IS
     );
 
 END usuario_tapi;
+
 ------------------
-create or replace PACKAGE BODY usuario_tapi IS
+CREATE OR REPLACE PACKAGE BODY usuario_tapi IS
 -- INSERT 
     PROCEDURE ins (
         p_idusuario IN usuario.idusuario%TYPE,
@@ -615,8 +624,9 @@ create or replace PACKAGE BODY usuario_tapi IS
     END;
 
 END usuario_tapi;
+
 ------------------
-create or replace PACKAGE venta_tapi IS
+CREATE OR REPLACE PACKAGE venta_tapi IS
     TYPE venta_tapi_rec IS RECORD (
         idseguimiento seguimientoenvios.idseguimiento%TYPE,
         estadoentrega seguimientoenvios.estadoentrega%TYPE,
@@ -648,8 +658,9 @@ create or replace PACKAGE venta_tapi IS
     );
 
 END venta_tapi;
+
 --------------------
-create or replace PACKAGE BODY venta_tapi IS
+CREATE OR REPLACE PACKAGE BODY venta_tapi IS
          -- INSERT 
     PROCEDURE ins (
         p_idventa           IN venta.idventa%TYPE,
@@ -694,6 +705,7 @@ create or replace PACKAGE BODY venta_tapi IS
             idventa = p_idventa;
 
     END; 
+    
 -- DELETE 
     PROCEDURE del (
         p_idventa IN venta.idventa%TYPE

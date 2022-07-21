@@ -135,3 +135,39 @@ ALTER TABLE usuario
 ALTER TABLE venta
     ADD CONSTRAINT venta_usuario_fk FOREIGN KEY ( usuario_idusuario )
         REFERENCES usuario ( idusuario );
+
+-- PRODUCTO
+INSERT INTO producto (idproducto, nomproducto, tipoproducto, descripcion, valorproducto, marca, modelo, stock, imagen) VALUES (1, 'PULSERA ECO CUERO', 'ACCESORIO', 'PULSERA EXO CUERO ESTILO VERANIEGO', 2500, 'STYLE FREE', 'VERANIEGO', 55, 'RUTA');
+INSERT INTO producto (idproducto, nomproducto, tipoproducto, descripcion, valorproducto, marca, modelo, stock, imagen) VALUES (2, 'PELUCHE ITO ITO', 'ACCESORIO', 'PELUCHE DISEÑO MONITO ITO ITO', 5000, 'MONIN', 'INFANTES', 60, 'RUTA');
+INSERT INTO producto (idproducto, nomproducto, tipoproducto, descripcion, valorproducto, marca, modelo, stock, imagen) VALUES (3, 'SOPORTE LED', 'ACCESORIO', 'SOPORTE PARA LED DE ESCRITORIO', 3500, 'GROVEE', 'ILUMINATION', 90, 'RUTA');
+
+-- DETALLEVENTA
+INSERT INTO detalleventa (iddetalleventa, cantidad, precioventa, venta_idventa, producto_idproducto) VALUES (1, 25, 2500, 1, 1);
+INSERT INTO detalleventa (iddetalleventa, cantidad, precioventa, venta_idventa, producto_idproducto) VALUES (2, 5, 5000, 1, 2);
+INSERT INTO detalleventa (iddetalleventa, cantidad, precioventa, venta_idventa, producto_idproducto) VALUES (3, 6, 5500, 1, 3);
+
+-- DOCUMENTACION
+INSERT INTO documentacion (iddocumentacion,tipodocumento, nomdocumento, documento, producto_idproducto) VALUES (1, 'PDF', 'USO Y CUIDADO DE PULSERA', 'RUTA', 1);
+INSERT INTO documentacion (iddocumentacion,tipodocumento, nomdocumento, documento, producto_idproducto) VALUES (2, 'PDF', 'CUIDADO Y USO DE PELUCHE', 'RUTA', 2);
+INSERT INTO documentacion (iddocumentacion,tipodocumento, nomdocumento, documento, producto_idproducto) VALUES (3, 'PDF', 'SUGERENCIAS LEDS', 'RUTA', 3);
+
+-- ROL
+INSERT INTO rol (idrol, nombre) VALUES (1, 'SUPERVISOR');
+INSERT INTO rol (idrol, nombre) VALUES (2, 'VENDEDOR');
+INSERT INTO rol (idrol, nombre) VALUES (3, 'USUARIO');
+
+-- USUARIOS
+INSERT INTO usuario (idusuario, username, password, nombre, apellidos, rut, email, fechanac, telefono, direccion, rol_idrol) VALUES (1, 'mau.nunezv', '123123', 'Mauricio', ' Jimenez Vega', '18525378-0', 'mauro_1982@live.com', '13/08/1995', 935488947, 'palena 2320, peña blanca', 1);
+INSERT INTO usuario (idusuario, username, password, nombre, apellidos, rut, email, fechanac, telefono, direccion, rol_idrol) VALUES (2, 'juanReal', '987987', 'Juan', ' Real Cornelio', '20010740-3', 'Juan.real.cornelio@live.com', '25/01/1980', 88164075, 'Huanhualli, Villa Alemana', 2);
+INSERT INTO usuario (idusuario, username, password, nombre, apellidos, rut, email, fechanac, telefono, direccion, rol_idrol) VALUES (3, 'MargaritaCarmen', '123456', 'Margarita', ' Carmen Urrieta', '142985876-0', 'MargaritaCarmen@gmail.com', '11/04/1997', 936210874, 'Sur 140, Limache', 3);
+
+-- VENTA
+INSERT INTO venta (idventa, fechahora, totalventa,estadoventa,usuario_idusuario) VALUES (1, '21/05/2022', 350000, 'PAGADO', 3);
+INSERT INTO venta (idventa, fechahora, totalventa,estadoventa,usuario_idusuario) VALUES (2, '14/06/2022', 50000, 'PENDIENTE', 2);
+INSERT INTO venta (idventa, fechahora, totalventa,estadoventa,usuario_idusuario) VALUES (3, '25/07/2022', 500000, 'PENDIENTE', 1);
+
+-- SEGUIMINTOENVIOS
+INSERT INTO seguimientoenvios (idseguimiento,estadoentrega, fechadespacho, fechaentrega, venta_idventa) VALUES (1, 'PENDIENTE', '22/05/2022', '26/05/2022', 1);  
+INSERT INTO seguimientoenvios (idseguimiento,estadoentrega, fechadespacho, fechaentrega, venta_idventa) VALUES (2, 'EN ENVIO', '15/05/2022', '17/05/2022', 2);  
+INSERT INTO seguimientoenvios (idseguimiento,estadoentrega, fechadespacho, fechaentrega, venta_idventa) VALUES (3, 'ENTREGADO', '25/05/2022', '26/05/2022', 3);  
+
