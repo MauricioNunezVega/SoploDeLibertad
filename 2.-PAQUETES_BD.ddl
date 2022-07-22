@@ -493,6 +493,8 @@ CREATE OR REPLACE PACKAGE usuario_tapi IS
         fechanac  usuario.fechanac%TYPE,
         telefono  usuario.telefono%TYPE,
         direccion usuario.direccion%TYPE,
+        comuna    usuario.comuna%TYPE,
+        region    usuario.region%TYPE,
         rol_idrol usuario.rol_idrol%TYPE
     );
     TYPE usuario_tapi_tab IS
@@ -510,6 +512,8 @@ CREATE OR REPLACE PACKAGE usuario_tapi IS
         p_fechanac  IN usuario.fechanac%TYPE,
         p_telefono  IN usuario.telefono%TYPE,
         p_direccion IN usuario.direccion%TYPE,
+        p_comuna    IN usuario.comuna%TYPE,
+        p_region    IN usuario.region%TYPE,
         p_rol_idrol IN usuario.rol_idrol%TYPE
     );
 
@@ -525,6 +529,8 @@ CREATE OR REPLACE PACKAGE usuario_tapi IS
         p_fechanac  IN usuario.fechanac%TYPE,
         p_telefono  IN usuario.telefono%TYPE,
         p_direccion IN usuario.direccion%TYPE,
+        p_comuna    IN usuario.comuna%TYPE,
+        p_region    IN usuario.region%TYPE,
         p_rol_idrol IN usuario.rol_idrol%TYPE
     );
 
@@ -549,6 +555,8 @@ CREATE OR REPLACE PACKAGE BODY usuario_tapi IS
         p_fechanac  IN usuario.fechanac%TYPE,
         p_telefono  IN usuario.telefono%TYPE,
         p_direccion IN usuario.direccion%TYPE,
+        p_comuna    IN usuario.comuna%TYPE,
+        p_region    IN usuario.region%TYPE,
         p_rol_idrol IN usuario.rol_idrol%TYPE
     ) IS
     BEGIN
@@ -563,6 +571,8 @@ CREATE OR REPLACE PACKAGE BODY usuario_tapi IS
             fechanac,
             telefono,
             direccion,
+            comuna,
+            region,
             rol_idrol
         ) VALUES (
             p_idusuario,
@@ -575,6 +585,8 @@ CREATE OR REPLACE PACKAGE BODY usuario_tapi IS
             p_fechanac,
             p_telefono,
             p_direccion,
+            p_comuna,
+            p_region,
             p_rol_idrol
         );
 
@@ -592,6 +604,8 @@ CREATE OR REPLACE PACKAGE BODY usuario_tapi IS
         p_fechanac  IN usuario.fechanac%TYPE,
         p_telefono  IN usuario.telefono%TYPE,
         p_direccion IN usuario.direccion%TYPE,
+        p_comuna    IN usuario.comuna%TYPE,
+        p_region    IN usuario.region%TYPE,
         p_rol_idrol IN usuario.rol_idrol%TYPE
     ) IS
     BEGIN
@@ -606,6 +620,8 @@ CREATE OR REPLACE PACKAGE BODY usuario_tapi IS
             fechanac = p_fechanac,
             telefono = p_telefono,
             direccion = p_direccion,
+            comuna = p_comuna,
+            region = p_region,
             rol_idrol = p_rol_idrol
         WHERE
             idusuario = p_idusuario;
