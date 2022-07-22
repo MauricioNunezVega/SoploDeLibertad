@@ -1,3 +1,7 @@
+----------------------------------------
+--PACKAGE DETALLEVENTA
+----------------------------------------
+
 CREATE OR REPLACE PACKAGE detalleventa_tapi IS
     TYPE detalleventa_tapi_rec IS RECORD (
         iddetalleventa      detalleventa.iddetalleventa%TYPE,
@@ -33,7 +37,10 @@ CREATE OR REPLACE PACKAGE detalleventa_tapi IS
 
 END detalleventa_tapi;
 
----------------- 
+----------------------------------------
+--PACKAGE BODY DETALLEVENTA
+----------------------------------------
+
 CREATE OR REPLACE PACKAGE BODY detalleventa_tapi IS
  -- INSERT 
     PROCEDURE ins (
@@ -93,7 +100,10 @@ CREATE OR REPLACE PACKAGE BODY detalleventa_tapi IS
 
 END detalleventa_tapi;
 
------------
+----------------------------------------
+--PACKAGE DOCUMENTACION
+----------------------------------------
+
 CREATE OR REPLACE PACKAGE documentacion_tapi IS
     TYPE documentacion_tapi_rec IS RECORD (
         iddocumentacion     documentacion.iddocumentacion%TYPE,
@@ -129,7 +139,10 @@ CREATE OR REPLACE PACKAGE documentacion_tapi IS
 
 END documentacion_tapi;
 
-----------
+----------------------------------------
+--PACKAGE BODY DOCUMENTACION
+----------------------------------------
+
 CREATE OR REPLACE PACKAGE BODY documentacion_tapi IS
 -- INSERT 
     PROCEDURE ins (
@@ -187,7 +200,10 @@ CREATE OR REPLACE PACKAGE BODY documentacion_tapi IS
 
 END documentacion_tapi;
 
----------------
+----------------------------------------
+--PACKAGE PRODUCTO
+----------------------------------------
+
 CREATE OR REPLACE PACKAGE producto_tapi IS
     TYPE producto_tapi_rec IS RECORD (
         idproducto    producto.idproducto%TYPE,
@@ -236,7 +252,10 @@ CREATE OR REPLACE PACKAGE producto_tapi IS
 
 END producto_tapi;
 
-------------
+----------------------------------------
+--PACKAGE BODY PRODUCTO
+----------------------------------------
+
 CREATE OR REPLACE PACKAGE BODY producto_tapi IS
      -- INSERT 
     PROCEDURE ins (
@@ -314,7 +333,10 @@ CREATE OR REPLACE PACKAGE BODY producto_tapi IS
 
 END producto_tapi;
 
-------------
+----------------------------------------
+--PACKAGE ROL
+----------------------------------------
+
 CREATE OR REPLACE PACKAGE rol_tapi IS
     TYPE rol_tapi_rec IS RECORD (
         idrol  rol.idrol%TYPE,
@@ -342,7 +364,10 @@ CREATE OR REPLACE PACKAGE rol_tapi IS
 
 END rol_tapi;
 
--------------
+----------------------------------------
+--PACKAGE BODY ROL
+----------------------------------------
+
 CREATE OR REPLACE PACKAGE BODY rol_tapi IS
 -- INSERT 
     PROCEDURE ins (
@@ -387,7 +412,10 @@ CREATE OR REPLACE PACKAGE BODY rol_tapi IS
 
 END rol_tapi;
 
--------------------
+----------------------------------------
+--PACKAGE SEGUIMIENTOENVIOS
+----------------------------------------
+
 CREATE OR REPLACE PACKAGE seguimientoenvios_tapi IS
     TYPE seguimientoenvios_tapi_rec IS RECORD (
         idseguimiento seguimientoenvios.idseguimiento%TYPE,
@@ -421,7 +449,10 @@ CREATE OR REPLACE PACKAGE seguimientoenvios_tapi IS
 
 END seguimientoenvios_tapi;
 
-----------------
+----------------------------------------
+--PACKAGE BODY SEGUIMIENTOENVIOS
+----------------------------------------
+
 CREATE OR REPLACE PACKAGE BODY seguimientoenvios_tapi IS
            -- INSERT 
     PROCEDURE ins (
@@ -480,7 +511,10 @@ CREATE OR REPLACE PACKAGE BODY seguimientoenvios_tapi IS
 
 END seguimientoenvios_tapi;
 
-----------------
+----------------------------------------
+--PACKAGE USUARIO
+----------------------------------------
+
 CREATE OR REPLACE PACKAGE usuario_tapi IS
     TYPE usuario_tapi_rec IS RECORD (
         idusuario usuario.idusuario%TYPE,
@@ -541,7 +575,10 @@ CREATE OR REPLACE PACKAGE usuario_tapi IS
 
 END usuario_tapi;
 
-------------------
+----------------------------------------
+--PACKAGE BODY USUARIO
+----------------------------------------
+
 CREATE OR REPLACE PACKAGE BODY usuario_tapi IS
 -- INSERT 
     PROCEDURE ins (
@@ -641,7 +678,10 @@ CREATE OR REPLACE PACKAGE BODY usuario_tapi IS
 
 END usuario_tapi;
 
-------------------
+----------------------------------------
+--PACKAGE VENTA
+----------------------------------------
+
 CREATE OR REPLACE PACKAGE venta_tapi IS
     TYPE venta_tapi_rec IS RECORD (
         idseguimiento seguimientoenvios.idseguimiento%TYPE,
@@ -675,7 +715,10 @@ CREATE OR REPLACE PACKAGE venta_tapi IS
 
 END venta_tapi;
 
---------------------
+----------------------------------------
+--PACKAGE BODY VENTA
+----------------------------------------
+
 CREATE OR REPLACE PACKAGE BODY venta_tapi IS
          -- INSERT 
     PROCEDURE ins (
