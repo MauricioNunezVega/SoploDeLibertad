@@ -3,23 +3,22 @@
 ----------------------------------------
 
 CREATE VIEW view_usuario AS
-SELECT nombre ||''|| apellidos "NOMBRE COMPLETO", rut, 
-trunc(months_between(to_date(to_char(SYSDATE, 'dd/mm/yyyy'), 'dd/mm/yyyy'), 
-TO_CHAR(to_char(fechanac, 'dd/mm/yyyy'), 'dd/mm/yyyy'))/12) "EDAD",
-fechanac "FECHA DE NACIMIENTO", telefono ,email "CORREO", direccion, comuna, region
+SELECT INITCAP(nombre ||''|| apellidos) "NOMBRE COMPLETO", rut,
+TRUNC(months_between(to_date(to_char(SYSDATE, 'dd/mm/yyyy'), 'dd/mm/yyyy'), 
+TO_DATE(to_char(fechanac, 'dd/mm/yyyy'), 'dd/mm/yyyy'))/12) "EDAD" ,
+LPAD(fechanac,14) "FECHA DE NACIMIENTO",telefono,email "CORREO", INITCAP(direccion) "DIRECCIÓN", INITCAP(comuna) "COMUNA", INITCAP(region) "REGIÓN" 
 from usuario
 ORDER BY "NOMBRE COMPLETO" ASC;
-
 
 ----------------------------------------
 -- VIEW_USUARIOCARGO
 ----------------------------------------
 
 CREATE VIEW view_usuarioCargo AS
-SELECT u.nombre ||''|| u.apellidos "NOMBRE COMPLETO", u.username, u.password, u.rut, 
+SELECT INITCAP(u.nombre ||''|| u.apellidos) "NOMBRE COMPLETO", u.username, u.password, u.rut, 
 trunc(months_between(to_date(to_char(SYSDATE, 'dd/mm/yyyy'), 'dd/mm/yyyy'), 
 to_date(TO_CHAR(u.fechanac, 'dd/mm/yyyy'), 'dd/mm/yyyy'))/12) "EDAD",
-u.fechanac "FECHA DE NACIMIENTO", u.telefono ,u.email "CORREO", r.nombre "CARGO"
+LPAD(u.fechanac,14) "FECHA DE NACIMIENTO", u.telefono ,u.email "CORREO", INITCAP(r.nombre) "CARGO"
 FROM usuario u INNER JOIN rol r
 ON u.idusuario = r.idrol
 ORDER BY "NOMBRE COMPLETO";
@@ -29,8 +28,8 @@ ORDER BY "NOMBRE COMPLETO";
 ----------------------------------------
 
 CREATE VIEW view_ventaUsuario AS
-SELECT  v.idventa "ID VENTA", u.nombre ||''|| u.apellidos "NOMBRE COMPLETO",u.telefono, u.email, v.fechahora "FECHA DE COMPRA", 
-v.estadoventa "ESTADO VENTA", p.nomproducto "NOM PRODUCTO", p.tipoproducto "TIPO PRODUCTO", p.marca, p.modelo, p.imagen,
+SELECT  v.idventa "ID VENTA", INITCAP(u.nombre ||''|| u.apellidos) "NOMBRE COMPLETO",u.telefono, u.email, LPAD(v.fechahora, 12) "FECHA DE COMPRA", 
+UPPER(v.estadoventa) "ESTADO VENTA", INITCAP(p.nomproducto) "NOM PRODUCTO", UPPER(p.tipoproducto) "TIPO PRODUCTO", UPPER(p.marca) "MARCA", UPPER(p.modelo) "MODELO",p.imagen,
 TO_CHAR(p.valorproducto,'$99g999g999') "VALOR UNITARIO", d.cantidad, 
 TO_CHAR(p.valorproducto*d.cantidad,'$99g999g999') "TOTAL VENTA"
 FROM venta v 
@@ -56,7 +55,7 @@ ORDER BY iddetalleventa ASC;
 ----------------------------------------
 
 CREATE VIEW view_producto AS
-SELECT idproducto, nomproducto, tipoproducto, descripcion, 
-TO_CHAR(valorproducto,'$99g999g999') "PRECIO", marca, modelo, stock, imagen 
+SELECT idproducto " ID PRODUCTO", INITCAP (nomproducto) "NOM PRODUCTO", UPPER(tipoproducto) "TIPO", INITCAP(descripcion) "DESCRIPCIÓN", 
+TO_CHAR(valorproducto,'$99g999g999') "PRECIO", UPPER(marca) "MARCA", UPPER(modelo) "MODELO", stock, imagen 
 FROM producto
 ORDER BY idproducto ASC;
